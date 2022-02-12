@@ -1,0 +1,66 @@
+Thank you for purchasing THC Prim eyes!
+If you have ideas, comments, complaints etc. feel free to drop a notecard on any THC officers (Doktor Seuss, Kaligus Campbell, Wilbert Hilbert) profile.
+
+**note: the CYA stuff to prevent future misunderstandings.
+* You will be sent all updates free of charge by one of our officers or employees within 48 hours of it being tested and approved.
+* We reserve the right to design and build similar products with different features.
+* We reserve the right to charge anywhere between nothing and full price to existing owners of similar products.
+* Any bug will be addressed within 24 hours of notice being given to us of the bug.
+* Bugs will be corrected and replacement products sent out within 48 hours of notification to us of the bug.
+* Changes in the secondlife system which break or improve our products will be addressed within 1 week.
+* Updates which are the result of secondlife changes will start their 48 hour clock in that week as soon as the change is documented by Linden Labs, has not broken something else, and is generally accepted as permenant.
+* We reserve the right to change nay part of this as needed without notice.  Notice of changes will be sent only if it impacts existing customers adversely.
+* ALL copyable items (except freebies) are non transferable and non refundable.
+* Gift versions of copyable items are available on SLeXchange or by IMing an officer or employee of THC.
+* ALL transferable items are not copyable and will only be refunded if the item is returned to an officer of THC with an explanation of the reason for the return/refund written in english by the original purchaser.
+* We reserve the right to protect our interests and not make refunds for items which are likely to be purchased and used once for a contest etc.  At least tell us a good story and we *MAY* give you a refund.
+* We coders not manual writers... if something needs to be clarified let us know and it will be done.
+
+Now the fun stuff !!
+
+First some notes.
+* THC prim eyes are full bright so they really stand out in a crowd.
+* THC prim eyes have a fully modifiable bling script which is enabled or disabled from the menues or config.note. (this is a multiple author script based on the Ama Omega particle script, if you make changes please leave all previous attributions in place!)
+* THC prim eyes are a full half ball so you can texture your whole visible eyeball unlike most other prim eyes which only cover a portion of your eyeball. (suggestion to add a back noted in release notes)
+* SL will from time to time and at random mess with the size of your avatars eyeball. So we added presets (Doktor Seuss who almost always wears her prim eyes has four (4) presets saved for her main shape).  It is best to keep your preset names to 8 charaters or shorter.
+* most people purchase the copyable eyes and place a copy in their avatar folders so the THC prim eyes are
+* changing your face shape using any of the sliders will always alter how THC full prim eyes fit.
+* Wear any set of eyes under the prims, though the included eyes are the best unless you are doing wacky things (they are just alpha, black, or white textures.  You can change the white to any color using the sliders).
+* Each prim eyeball will have it's own channel, 15 for left and 16 for right.  Unless you have seperated the eyes they will both tell the other about any changes you make **EXCEPT to textures loaded into the eyeballs.  We use /15 as an example but you can also use /16, and of course if they are seperated you must set each up seperately.
+* The demo model DOES NOT allow you to add eyeball textures and all but one of the included textures is a simple texture with just the words "demo" in various colors etc.  This allows you to see the positioning and sizing of the prim to make sure the THC prim eyes can be made to fit your avatar.
+* The demo model does not support the "config.note".
+* demo mode does not allow you to turn off random, turn off both, set time interval, or turn off the timer.
+
+Wear your eyes from inventory, they should go to your eyeballs.  Adjust them to your avatars shape using "/15 main" typed into chat, and navigating the menus.  Your eyes *should* remember their settings between sessions and wearings etc. (fingers crossed SL is in a cooperative mood O-o)
+
+The "default" size is larger than we have ever seen a need for so you can easily see the bounds of your prim eyes (though we are sure there are some out there!).  The "female" and "male" sizes are good starting places for most normal sized avatars.  If you find other sizes that work frequently we would love to hear about them!
+
+The config.note notecard is heavily commented.  Once you understand the notecard you may wish to remove all comments as it slows loading each time you wear your eyes.
+
+The various settings defined: (note the same name is used for the button or the notecard setting, the notecard setting is in the form setOPTION=value).
+both:
+  when on (1) will synch the other eyeball with the one you are currently adjusting.  Size, position, and all modes are synched.  When off (0) nothing is communicated between eyes.
+size:
+  the actual size of the half ball.
+    height: from top to bottom
+    width: from side to side
+    depth: from your face to your back
+    (minimum allowed size of 0.01 Meters)
+position:
+  where the prim eyes match to your avatar's actual eyeballs.
+    horiz: the horizontal or left to right direction
+    vert: the top to bottom direction
+    inout: positive number will move the prim eyes out in front of your face, negative numbers will move the prim eyes behind your actual eyeball
+    (SL imposed restriction of 10M distance total)
+random:
+  will make texture selection randomly, will set timer interval between 1 and <time> seconds randomly.
+  ** note: random mode is synched between eyes if both is on.  Each eye will choose it's random time and texture indivually.
+timed:
+  turns the timer and random features on or off.  If on textures will be set in alphabetical order by name, or if random is also on randomly select from that same list.
+time:
+  what duration to use between textures, and the limit for random times.
+  (this is currently restricted to be between 30 second and 1 hour)
+texnum:
+  secondlife assigns numbers to the textures in the inventory of each eyeball starting at zero (0), here you can select one of those textures by that number.  **note this number is synched between the eyes of "both" is on, but the textures are not synched.  This is not a bug it is designed that way because many of our testers like to do wacky things :)
+
+If you would like to have an option in the menus (fall back to the menus) or (not fall back to the menus) please let us know, we will take it into consideration for a future release.

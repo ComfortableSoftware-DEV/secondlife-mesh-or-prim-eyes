@@ -1,0 +1,17 @@
+[1:44]  left: current time interval:30
+[1:44]  left: random is ENabled
+[1:44]  right: current time interval:30
+[1:44]  left: current texture number:3 out of 9
+[1:44]  right: random is ENabled
+[1:44]  right: current texture number:8 out of 9
+[1:44]  left: texture set to THC-w-eyes-1001.tga
+[1:44]  left: THC Prim eyes left eye status
+[1:44]  left: position:<0.00100, 0.00000, 0.00000>
+[1:44]  left: Size:<0.04070, 0.03740, 0.03740>
+[1:44]  left: eyes are SEPERATE
+[1:44]  left: textures will change on timer
+[1:44]  left: current time interval:30
+[1:44]  left: random is ENabled
+[1:44]  left: current texture number:2 out of 9
+[1:44]  right: texture set to THC-w-eyes-1007.tga
+[1:44]  right: texture set to THC-w-eyes-1002.tga

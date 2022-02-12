@@ -1,0 +1,43 @@
+This file contains the beta testing notes and release history for THC prim eyes.
+
+TODO:
+add "bug out" feature.
+add timed sizes to allow timed or random "bug out".
+add a blank back so the eyeballs are full spheres.
+make bling more configurable and menu driven.
+** make a 'scupltie' model of prim eyes for even wackier possibilities.
+add a configurable light source to the prims
+
+
+If you have ideas, comments, complaints etc. feel free to drop a notecard on any THC officer (Doktor Seuss, Kaligus Campbell, Wilbert Hilbert) profile.
+
+
+v3.0.1
+2007 June 1
+* changed vectors to "normal people" input in notecard more testers prefer this.
+* removed silent mode and everything associated cause LSL ran out of memory :( when we changed vectors to normal-people
+* cut down some menu items to take less memory
+* presets are NOT synched by popular demand
+* there should be enough room for about 15 presets now
+* removed code to check for preset name lengths
+
+v3.0.0
+2007 May 27
+* notecard config added because the variablility in size is too large for defaults ("config.note").  Beta testers would rather have the delay than use defaults based on a small sample of shapes.
+* removed most checks for setting sanity to reduce server load after reports of problems from beta testers.
+* Betatesters want to do 'wacky' things at times, which falls outside of "sanity" checks anyway.
+* added "sync eyes" command as requested by testers who want to do wacky things and be normal as well.
+* note to reduce script load the notecard lines use 0=off and 1=on
+
+v2.0.0
+2007 May 21
+* added ability to change size and position to cope with SL variable sliders changing eyeball size greatly.
+* defaults presets added for size and position (not everyone is weird sized like us O-o).
+* added a master default (preset "default") that is large enough for any "regular" avatar to see the eyes before adjustment.
+* added ability to drop eyes on the ground to edit with 20x size on ground. (undocumented on purpose except here and noone reads the release notes anyway :P )
+
+v 1.0.0
+2007 May 20
+* original FULL prim eyes. uses a half sphere instead of just a contact lens like prim.
+* low lag and lots of sanity checks.
+* no notecard configuration to make them fast.

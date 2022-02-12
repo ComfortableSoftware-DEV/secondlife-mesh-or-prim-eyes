@@ -1,0 +1,44 @@
+; comment lines start with ; or #
+; in this example ; is used for notes and defaults built into the script
+; and # is used to show the commands
+; see help.note for more information
+; case DOES NOT matter
+
+# setboth=1/0
+setboth=1
+; operate on both eyes when changing settings on one
+
+# addsize=name,depth,width,height
+; addsize=default,0.062,0.060,0.060
+; addsize=female,0.033,0.031,0.031
+; addsize=male,0.041,0.037,0.037
+; these sizes are already built into the menu and can not be removed.  You are free to add your own.
+
+#addposition=name,inout,horizontal,vertical
+; addposition=default,0.001,0.000,0.000
+; this position is built into the menu and can not be removed. Add you rown presets with this.
+
+# setrandom=1/0
+; set random on (1) or off (1)
+setrandom=1
+
+# settimed=1/0
+; sets texture change timer to on or off
+settimed=1
+
+# settime=seconds (30 to 3600 seconds)
+settime=30
+
+# settexnum=texture-number
+; see help.note for more info
+
+# setheight=height (z)
+# setwidth=width (y)
+# setdepth=depth (x)
+; set size of eyeball prim
+
+# setinout=inout (x)
+# sethoriz=horizontal (y)
+# setvert=vertical (z)
+; sets the position of the eyeball prim relative to the actual avatar eyeball
+; *NOTE* this normally doesnt need to be changed for non wacky settings
