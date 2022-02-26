@@ -4,6 +4,7 @@ string myVersion = "5.0.0-1";
 
 
 float ratio = 21.088607;
+float myActualSize = 0.029;
 integer both = FALSE;
 integer isRandom = TRUE;
 integer isTimed = TRUE;
@@ -11,27 +12,27 @@ integer notecardLineNum = 0;
 key dataReqKey;
 
 
-float myDefaultTextureRotation = 0;
-float myDefaultSize = 0.05332;
-integer myDefaultTextureNum = 0;
-integer myDefaultTime = 5;
-key myDefaultTexture = "fce92c78-ae92-9da7-e744-f42f2a8db93c";
-vector myDefaultPosition = <0.009, 0.0016, 0>;
-vector myDefaultRotation = <0, 0, 0>;
-vector myDefaultSize = <0.01450, 0.029, 0.029>;
-vector myDefaultTextureOffset = <0, 0, 0>;
-vector myDefaultTextureRepeats = <1, 1, 0>;
+float myDefaultTextureRotation;
+float myDefaultSize;
+integer myDefaultTextureNum;
+integer myDefaultTime;
+key myDefaultTexture;
+vector myDefaultPosition;
+vector myDefaultRotation;
+vector myDefaultSize;
+vector myDefaultTextureOffset;
+vector myDefaultTextureRepeats;
 
 
-float myCurrentTextureRotation = myDefaultTextureRotation;
-integer myCurrentTextureNum = myDefaultTextureNum;
-integer myCurrentTime = myDefaultTime;
-key myCurrentTexture = myDefaultTexture;
-vector myCurrentPosition = myDefaultPosition;
-vector myCurrentRotation = myDefaultRotation;
-vector myCurrentSize;
-vector myCurrentTextureOffset = myDefaultTextureOffset;
-vector myCurrentTextureRepeats = myDefaultTextureRepeats;
+float myCurrentTextureRotation;
+integer myCurrentTextureNum;
+integer myCurrentTime;
+key myCurrentTexture;
+vector myCurrentPosition;
+vector myCurrentRotation;
+vector myCurrentSiz;
+vector myCurrentTextureOffset;
+vector myCurrentTextureRepeats;
 
 
 list myCurrentTextureList = [
@@ -53,11 +54,24 @@ list dialogTimer = ["main", "help", "done", "timerOn", "timerOff", "randomOn", "
 list dialogTimerAdjust = ["back", "help", "done", "sec+10", "sec-10", "sec+1", "sec-1", "min+1", "min-1", "sec+30", "sec-30", ""];
 
 
+setDefaults()
+{
+  myDefaultTextureRotation = 0;
+  myDefaultSize = 0.05332;
+  myDefaultTextureNum = 0;
+  myDefaultTime = 5;
+  myDefaultTexture = "fce92c78-ae92-9da7-e744-f42f2a8db93c";
+  myDefaultPosition = <0.009, 0.0016, 0>;
+  myDefaultRotation = <0, 0, 0>;
+  myDefaultSize = <myActualSize / ratio, myActualSize, myActualSize>;
+  myDefaultTextureOffset = <0, 0, 0>;
+  myDefaultTextureRepeats = <1, 1, 0>;
+}
+
+
 setAll()
 {
   llOwnerSay("Setting ALL the things");
-  myCurrentSize.y = myCurrentSize.z = myDefaultSize.z;
-  myCurrentSize.x = myDefaultSize.z / ratio;
 
   if (myCurrentTexture == "BOM")
   {
@@ -80,6 +94,21 @@ setAll()
   }
 }
 
+
+resetCurrentToDefaults()
+{
+  myCurrentTextureRotation = myDefaultTextureRotation;
+  myCurrentSize = myDefaultSize;
+  myCurrentTextureNum = myDefaultTextureNum;
+  myCurrentTime = myDefaultTime;
+  myCurrentTexture = myDefaultTexture;
+  myCurrentPosition = myDefaultPosition;
+  myCurrentRotation = myDefaultRotation;
+  myCurrentSize = myDefaultSize;
+  myCurrentTextureOffset = myDefaultTextureOffset;
+  myCurrentTextureRepeats = myDefaultTextureRepeats;
+  setAll();
+}
 
 doALine(string variable, string value)
 {
