@@ -6,7 +6,20 @@ string myVersion = "5.0.0-1";
 // default values
 float defaultPositionMoves = 0.001;
 float defaultSizeChange = 0.001;
-vector defaultSize = <0.018, 0.039, 0.039>;
+integer both = FALSE;
+integer isRandom = TRUE;
+integer isTimed = TRUE;
+integer myTime = 10;
+key myCurrentTexture = "fce92c78-ae92-9da7-e744-f42f2a8db93c";
+vector defaultPosition = <0, 0, 0>;
+vector defaultRotation = <0, 0, 0>;
+vector defaultSize = <0.012, 0.023, 0.023>;
+vector myCurrentPosition = <0, 0, 0>;
+vector myCurrentRotation = <0, 0, 0>;
+vector myCurrentSize = <0.018, 0.039, 0.039>;
+
+
+list myCurrentTextureList = [];
 
 
 // main dialogs
@@ -22,37 +35,9 @@ list dialogTimer = ["main", "help", "done", "timerOn", "timerOff", "randomOn", "
 list dialogTimerAdjust = ["back", "help", "done", "sec+10", "sec-10", "sec+1", "sec-1", "min+1", "min-1", "sec+30", "sec-30", ""]
 
 
-vector myPosition = <0.001, -0.0, -0.0>; // x=inout y=horizontal z=vertical
-vector mySize
-
-integer isRandom = TRUE;
-integer isTimed = TRUE;
-integer myTime = 30;
-integer both = FALSE;
-
-
-// texture variables
-integer numOfTextures;
-integer texNum = 0;
-
-// internal variables
-key myTexture;
-key owner;
-key myNormals = "a5b27156-c30f-79b9-3358-dbbb13d48a15";
-integer myEnvironment = 90;
-integer isMine;
-integer myAttached = 0;
-integer myChan;
-integer otherChan;
-integer mode;
-integer ti1;
-string ts1; // 0=main 1=texture 2=height 3=width 4=depth 5=position 6=size 7=vertical 8=horizontal 9=inout 10=timer 11=more 12=sizepresets 13=positionpresets
-
-default
+changeAll()
 {
-
-  state_entry()
-  {
-    llOwnerSay("Add the HUD for these eyes or local chat to ");
-  }
+  llSetLinkPrimitiveParams(LINK_THIS, [
+      PRIM_SIZE, myCurrentSize,
+  ]);
 }

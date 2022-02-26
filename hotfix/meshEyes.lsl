@@ -43,7 +43,7 @@ list dialog_sizeNames = [
     "sz-42"
 ];
 list dialog_size = ["height", "width", "depth", "main", "done"];
-vector mySize = <0.023, 0.023, 0.023>; // x=depth y=width z=height
+vector mySize = <0.025, 0.025, 0.025>; // x=depth y=width z=height
 
 // position for left eye, y will auto correct for right eye in init
 list myPositions =[
@@ -65,7 +65,7 @@ list dialog_positionNames = [
     "pz-02,0,0"
 ];
 list dialog_position = ["vert", "horiz", "inout", "main", "done"];
-vector myPosition = <0.007, 0.0, 0.0>; // x=inout y=horizontal z=vertical
+vector myPosition = <0.001, 0.0, 0.0>; // x=inout y=horizontal z=vertical
 
 integer isRandom = TRUE;
 integer isTimed = TRUE;
@@ -80,7 +80,7 @@ integer texNum = 0;
 key myTexture;
 key owner;
 key myNormals = "a5b27156-c30f-79b9-3358-dbbb13d48a15";
-integer myEnvironment = 90;
+integer myEnvironment = 0;
 integer isMine;
 integer myAttached = 0;
 integer myChan;
@@ -148,10 +148,8 @@ setUp()
     askFor("Texture", texNum);
     llSetPrimitiveParams([
         PRIM_SIZE, TMySize,
-        PRIM_TEXTURE, ALL_SIDES, myTexture, <PI, PI / 2, 0>, <0.0, 0.2, 0.0>, (90 * DEG_TO_RAD),
-        PRIM_NORMAL,  ALL_SIDES, myNormals, <1.0, 1.0, 1.0>, <0.0, 0.0, 0.0>, 0,
-        PRIM_SPECULAR, ALL_SIDES, myTexture, <PI, PI / 2, 0>, <0.0, 0.2, 0.0>, (90 * DEG_TO_RAD), <1.0, 1.0, 1.0>, 255, myEnvironment,
-        PRIM_ROTATION, llEuler2Rot(<0.0, 0.0, 114.59> * DEG_TO_RAD)
+        PRIM_TEXTURE, ALL_SIDES, myTexture, <1, 1, 0>, <0, 0, 0>, (90 * DEG_TO_RAD),
+        PRIM_ROTATION, llEuler2Rot(<0, 0, 0> * DEG_TO_RAD)
     ]);
     //llOwnerSay(myName + " set and good to go");
 }
