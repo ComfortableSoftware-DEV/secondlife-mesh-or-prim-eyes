@@ -4,7 +4,6 @@ string myVersion = "5.0.0-1";
 
 
 float ratio = 21.088607;
-float myActualSize = 0.029;
 integer both = FALSE;
 integer isRandom = TRUE;
 integer isTimed = TRUE;
@@ -12,25 +11,29 @@ integer notecardLineNum = 0;
 key dataReqKey;
 
 
+float myDefaultActualSize;
+float myDefaultRatio;
 float myDefaultTextureRotation;
-float myDefaultSize;
 integer myDefaultTextureNum;
 integer myDefaultTime;
 key myDefaultTexture;
 vector myDefaultPosition;
 vector myDefaultRotation;
 vector myDefaultSize;
+vector myDefaultSize;
 vector myDefaultTextureOffset;
 vector myDefaultTextureRepeats;
 
 
+float myCurrentActualSize;
+float myCurrentRatio;
 float myCurrentTextureRotation;
 integer myCurrentTextureNum;
 integer myCurrentTime;
 key myCurrentTexture;
 vector myCurrentPosition;
 vector myCurrentRotation;
-vector myCurrentSiz;
+vector myCurrentSize;
 vector myCurrentTextureOffset;
 vector myCurrentTextureRepeats;
 
@@ -56,16 +59,17 @@ list dialogTimerAdjust = ["back", "help", "done", "sec+10", "sec-10", "sec+1", "
 
 setDefaults()
 {
-  myDefaultTextureRotation = 0;
-  myDefaultSize = 0.05332;
-  myDefaultTextureNum = 0;
-  myDefaultTime = 5;
-  myDefaultTexture = "fce92c78-ae92-9da7-e744-f42f2a8db93c";
+  myDefaultActualSize = 0.029;
   myDefaultPosition = <0.009, 0.0016, 0>;
+  myDefaultRatio = ratio;
   myDefaultRotation = <0, 0, 0>;
-  myDefaultSize = <myActualSize / ratio, myActualSize, myActualSize>;
+  myDefaultSize = <myDefaultActualSize.x / ratio, myDefaultActualSize.y, myDefaultActualSize.z>;
+  myDefaultTexture = "fce92c78-ae92-9da7-e744-f42f2a8db93c";
+  myDefaultTextureNum = 0;
   myDefaultTextureOffset = <0, 0, 0>;
   myDefaultTextureRepeats = <1, 1, 0>;
+  myDefaultTextureRotation = 0;
+  myDefaultTime = 5;
 }
 
 
@@ -97,16 +101,18 @@ setAll()
 
 resetCurrentToDefaults()
 {
-  myCurrentTextureRotation = myDefaultTextureRotation;
-  myCurrentSize = myDefaultSize;
-  myCurrentTextureNum = myDefaultTextureNum;
-  myCurrentTime = myDefaultTime;
-  myCurrentTexture = myDefaultTexture;
+  myCurrentActualSize = myDefaultActualSize;
   myCurrentPosition = myDefaultPosition;
+  myCurrentRatio = myDefaultRatio;
   myCurrentRotation = myDefaultRotation;
   myCurrentSize = myDefaultSize;
+  myCurrentSize = myDefaultSize;
+  myCurrentTexture = myDefaultTexture;
+  myCurrentTextureNum = myDefaultTextureNum;
   myCurrentTextureOffset = myDefaultTextureOffset;
   myCurrentTextureRepeats = myDefaultTextureRepeats;
+  myCurrentTextureRotation = myDefaultTextureRotation;
+  myCurrentTime = myDefaultTime;
   setAll();
 }
 
