@@ -39,7 +39,7 @@ vector myCurrentTextureRepeats;
 
 
 list myCurrentTextureList = [
-    "c59038ce-481f-6479-be6f-ad85a23d540e",
+    ":U|c59038ce-481f-6479-be6f-ad85a23d540e||",
     "BOM"
 ];
 
@@ -76,9 +76,21 @@ setDefaults()
 setAll()
 {
   llOwnerSay("Setting ALL the things");
+  string firstChars = llGetSubString(myCurrentTexture, 0, 2);
 
-  if (myCurrentTexture == "BOM")
+  if (firstChars == ":B")
   {
+    llSetPrimitiveParams([
+        PRIM_TEXTURE, ALL_SIDES, IMG_USE_BAKED_EYES, <1, 1, 0>, <0, 0, 0>, myCurrentTextureRotation * DEG_TO_RAD ,
+        PRIM_ROTATION, llEuler2Rot(myCurrentRotation * DEG_TO_RAD),
+        PRIM_POSITION, myCurrentPosition,
+        PRIM_SIZE, myCurrentSize
+    ]);
+  }
+
+  else if (firstChars == ":G")
+  {
+    list splitParams = llParseString2List(myCurrentTexture, ["|"], [""])
     llSetPrimitiveParams([
         PRIM_TEXTURE, ALL_SIDES, IMG_USE_BAKED_EYES, <1, 1, 0>, <0, 0, 0>, myCurrentTextureRotation * DEG_TO_RAD ,
         PRIM_ROTATION, llEuler2Rot(myCurrentRotation * DEG_TO_RAD),
@@ -115,6 +127,18 @@ resetCurrentToDefaults()
   myCurrentTime = myDefaultTime;
   setAll();
 }
+
+
+/*
+Texture lines look like:
+:B
+  - Use BOM eyes in this slot.
+:G|textureUUID|gridNumber|columns|rows
+  - A shared grid texture, segment #0 is northwest corner, moves east then north.
+:U|textureUUID|rotation
+  - Normal texture UUID and rotation
+*/
+
 
 doALine(string variable, string value)
 {
