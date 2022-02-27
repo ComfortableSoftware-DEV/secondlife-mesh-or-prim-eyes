@@ -1,5 +1,5 @@
 // version info
-string myName = "THC prim eyes";
+string myName = "THC mesh eyes";
 string myVersion = "5.0.0-1";
 
 
@@ -14,9 +14,10 @@ key dataReqKey;
 float myDefaultActualSize;
 float myDefaultRatio;
 float myDefaultTextureRotation;
-integer myDefaultTextureNum;
+integer myDefaultTextureStartNum;
 integer myDefaultTime;
 key myDefaultTexture;
+list myDefaultTextureList;
 vector myDefaultPosition;
 vector myDefaultRotation;
 vector myDefaultSize;
@@ -39,14 +40,12 @@ vector myCurrentTextureRepeats;
 
 
 list myCurrentTextureList = [
-    ":U|c59038ce-481f-6479-be6f-ad85a23d540e||",
-    "BOM"
 ];
 
 
 // main dialogs
 list dialogMain = ["more", "help", "done", "texture", "rotation", "un/join", "size", "position", "reset", "status", "materials", "timer"];
-list dialogMore = ["main", "help", "done", "presets", "loadCard", "allRandom", "", "", "", "", "", ""];
+list dialogMore = ["main", "help", "done", "presets", "loadCard", "allRandom", "lookAtBigEyes", "laserBeam", "particles", "", "", ""];
 list dialogPosition = ["main", "help", "done", "vert", "horiz", "depth", "zero", "presets", "default", "", "", ""];
 list dialogPositionAdjust = ["back", "help", "done", "pos+1", "pos-1", "pos+5", "pos-5", "pos+10", "pos-10", "pos+100", "pos-100", "default"];
 list dialogRotation = ["main", "help", "done", "clock", "upDown", "leftRight", "", "", "", "", "", ""];
@@ -65,7 +64,7 @@ setDefaults()
   myDefaultRotation = <0, 0, 0>;
   myDefaultSize = <myDefaultActualSize.x / ratio, myDefaultActualSize.y, myDefaultActualSize.z>;
   myDefaultTexture = "fce92c78-ae92-9da7-e744-f42f2a8db93c";
-  myDefaultTextureNum = 0;
+  myDefaultTextureStartNum = 0;
   myDefaultTextureOffset = <0, 0, 0>;
   myDefaultTextureRepeats = <1, 1, 0>;
   myDefaultTextureRotation = 0;
@@ -120,7 +119,7 @@ resetCurrentToDefaults()
   myCurrentSize = myDefaultSize;
   myCurrentSize = myDefaultSize;
   myCurrentTexture = myDefaultTexture;
-  myCurrentTextureNum = myDefaultTextureNum;
+  myCurrentTextureNum = myDefaultTextureStartNum;
   myCurrentTextureOffset = myDefaultTextureOffset;
   myCurrentTextureRepeats = myDefaultTextureRepeats;
   myCurrentTextureRotation = myDefaultTextureRotation;
@@ -129,15 +128,6 @@ resetCurrentToDefaults()
 }
 
 
-/*
-Texture lines look like:
-:B
-  - Use BOM eyes in this slot.
-:G|textureUUID|gridNumber|columns|rows
-  - A shared grid texture, segment #0 is northwest corner, moves east then north.
-:U|textureUUID|rotation
-  - Normal texture UUID and rotation
-*/
 
 
 doALine(string variable, string value)
@@ -174,6 +164,7 @@ default
   {
     llSetTimerEvent(myCurrentTime);
     setAll();
+    dataReqKey = llGetNotecardLine("config.note", notecardLineNum);
   }
 
   on_rez(integer startParam)
@@ -188,22 +179,38 @@ default
     {
       llResetScript();
     }
-//    else if (changes && CHANGED_INVENTORY)
-//    {
-//      dataReqKey = llGetNotecardLine("config.note", notecardLineNum);
-//    }
+  }
+
+  dataserver(key query, string data)
+  {
+    if (query == dataReqKey)
+    {
+      if (data != EOF)
+      {
+        string firstChar = llGetSubString(data, 0, 1);
+        if (firstChar != "#")
+        {
+          list myLine = llParseString2List(data, ["|"], []);
+          doALine(llList2String(myLine, 0), llList2String(myLine, 1));
+        }
+        notecardLineNum++;
+        dataReqKey = llGetNotecardLine("config.note", notecardLineNum);
+      }
+      else
+      {
+        llOwnerSay("Notecard read...");
+      }
+    }
   }
 
   timer()
   {
-    llOwnerSay("Timer triggered");
     myCurrentTextureNum++;
-    if (myCurrentTextureNum > llGetListLength(myCurrentTextureList) )
+    if (myCurrentTextureNum >= llGetListLength(myCurrentTextureList) )
     {
         myCurrentTextureNum = 0;
     }
     setTextureOnly();
-    // llSetTimerEvent(myCurrentTime);
   }
 
 }

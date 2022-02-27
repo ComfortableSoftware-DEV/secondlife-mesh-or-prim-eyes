@@ -1,0 +1,6 @@
+[book]
+authors = ["Doktor Seuss", "Wilbert Hilbert"]
+language = "en"
+multilingual = false
+src = "doc"
+title = "Mesh eye user's manual"
